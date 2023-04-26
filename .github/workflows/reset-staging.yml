@@ -16,14 +16,14 @@ jobs:
         uses: Kaven-Universe/github-action-current-date-time@v1
         with:
           format: "YYYY-MM-DD"
-      - name: Reset branch to master
+      - name: Reset branch to main
         run: |
-          git fetch origin master
-          git reset --hard origin/master
+          git fetch origin main
+          git reset --hard origin/main
       - name: Last reset
         run: |
-          echo ${{ steps.date.outputs.date }} > ./.github/last_staging_reset.md
+          echo ${{ steps.date.outputs.time }} > ./.github/last_staging_reset.md
           git add ./.github/last_staging_resets.md
-          git commit -m "Staging reset on  ${{ steps.date.outputs.time}}"
+          git commit -m "Staging reset on  ${{ steps.date.outputs.time }}"
       - name: Push to staging
         run: git push origin staging --force
