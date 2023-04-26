@@ -13,7 +13,9 @@ jobs:
           ref: staging
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+        uses: Kaven-Universe/github-action-current-date-time@v1
+        with:
+          format: "YYYY-MM-DD"
       - name: Reset branch to master
         run: |
           git fetch origin master
@@ -22,6 +24,6 @@ jobs:
         run: |
           echo ${{ steps.date.outputs.date }} > ./.github/last_staging_reset.md
           git add ./.github/last_staging_resets.md
-          git commit -m "Staging reset on  ${{ steps.date.outputs.date }}"
+          git commit -m "Staging reset on  ${{ steps.date.outputs.time}}"
       - name: Push to staging
         run: git push origin staging --force
