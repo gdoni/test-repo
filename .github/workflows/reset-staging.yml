@@ -25,7 +25,7 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           echo ${{ steps.date.outputs.time }} > ./.github/last_staging_reset.md
-          git add ./.github/last_staging_resets.md
+          git add ./.github/last_staging_reset.md
           git commit -m "Staging reset on  ${{ steps.date.outputs.time }}"
       - name: Push to staging
         run: git push origin staging --force
