@@ -22,8 +22,6 @@ jobs:
           git reset --hard origin/main
       - name: Last reset
         run: |
-          git config --global user.name "Giovanni Doni"
-          git config --global user.email "giovanni.doni@deliveroo.co.uk"
           echo ${{ steps.date.outputs.time }} > ./.github/last_staging_reset.md
           git add ./.github/last_staging_reset.md
           git commit -m "Staging reset on  ${{ steps.date.outputs.time }}"
