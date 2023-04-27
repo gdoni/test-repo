@@ -21,8 +21,6 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
       - name: Last reset
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo ${{ steps.date.outputs.time }} > ./.github/last_staging_reset.md
           git add ./.github/last_staging_reset.md
